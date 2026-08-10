@@ -48,7 +48,8 @@ namespace test
 
             Console.WriteLine("Jeg er " + max1 + " gange stærkere end dig");
 
+             
 
-        }
+        } 
     }
 }
