@@ -32,7 +32,7 @@ namespace test
             Array tal = Array();
             Console.WriteLine(Math.Min(tal[1, 3, 1]));
 
-            Math.Min(1, 2);*/
+            Math.Min(1, 2);
 
             int max1 = 0;
             int max = 0;
@@ -46,9 +46,31 @@ namespace test
             max = (Math.Max(tal1, tal2));
             max1 = (Math.Max(max, tal3));
 
-            Console.WriteLine("Jeg er " + max1 + " gange stærkere end dig");
+            Console.WriteLine("Jeg er " + max1 + " gange stærkere end dig");*/
 
-             
+
+            double Year = 0.0;
+            double QuarterYear = 0.0
+
+            Year = int.Parse(Console.ReadLine());
+
+            // QuarterYear = Year % 4;
+
+            if (QuarterYear/4.0 == Math.Floor(QuarterYear/4.0))
+            {
+                Console.WriteLine("Det er et skudår");
+            }
+            else
+            {
+                Console.WriteLine("Det er ikke et skudår");
+            }
+            
+            
+
+
+
+
+
 
 
 
