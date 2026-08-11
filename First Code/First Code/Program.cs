@@ -50,7 +50,7 @@ namespace test
 
 
             double Year = 0.0;
-            double QuarterYear = 0.0
+            double QuarterYear = 0.0;
 
             Year = int.Parse(Console.ReadLine());
 
@@ -65,7 +65,7 @@ namespace test
                 Console.WriteLine("Det er ikke et skudår");
             }
             
-            
+            Console.ReadLine(); 
 
 
 
