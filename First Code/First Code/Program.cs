@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace test
 {
     internal class Program
@@ -54,9 +54,9 @@ namespace test
 
             Year = int.Parse(Console.ReadLine());
 
-            // QuarterYear = Year % 4;
+            QuarterYear = Year % 4;
 
-            if (QuarterYear/4.0 == Math.Floor(QuarterYear/4.0))
+            if (QuarterYear == 0)
             {
                 Console.WriteLine("Det er et skudår");
             }
