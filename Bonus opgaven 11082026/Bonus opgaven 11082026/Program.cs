@@ -31,7 +31,7 @@ namespace Bonus_opgaven_11082026
             Year = int.Parse(Console.ReadLine());
 
             QuarterYear = Year % 4;
-
+            
             if (QuarterYear == 0)
             {
                 Console.WriteLine("Det er et skudår");
@@ -40,6 +40,7 @@ namespace Bonus_opgaven_11082026
             {
                 Console.WriteLine("Det er ikke et skudår");
             }
+            Console.ReadLine();
         }
     }
 }

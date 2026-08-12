@@ -74,6 +74,13 @@ namespace test
 
 
 
+            &/*string userInput = Console.ReadLine();
+            int userNumber = int.Parse(userInput);
+            double tips = userNumber * 0.15;
+            Console.WriteLine("Du skal give " + tips + " kr. i drikkepenge");
+            Console.ReadLine();
+
+
         } 
     }
 }
