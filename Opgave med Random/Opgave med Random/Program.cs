@@ -53,6 +53,10 @@ namespace Opgave_med_Random
             }
 
             Console.WriteLine(tal - helTal);
+
+
+
+
         }
     }
 }
