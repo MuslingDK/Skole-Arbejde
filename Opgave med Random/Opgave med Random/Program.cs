@@ -12,7 +12,7 @@ namespace Opgave_med_Random
         {
             // Opgave 1
             /*Random terning = new Random();
-            int resultat = terning.Next(1, 6);
+            int resultat = terning.Next(1, 7);
             Console.WriteLine(resultat);
 
             if (resultat <= 2)
@@ -54,9 +54,7 @@ namespace Opgave_med_Random
 
             Console.WriteLine(tal - helTal);
 
-
-
-
+            Console.ReadLine();
         }
     }
 }
