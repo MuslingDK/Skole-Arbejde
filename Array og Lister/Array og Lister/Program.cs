@@ -10,9 +10,11 @@ namespace Array_og_Lister
     {
         static void Main(string[] args)
         {
-            /*int i = 0;
+            
+            /*/ Opgave 1
+            int i = 0;
 
-            while (i < 100)
+            while (i <= 100)
             {
                 Console.WriteLine(i);
                 i++;
@@ -20,6 +22,8 @@ namespace Array_og_Lister
 
             Console.ReadLine();
 
+
+            // Opgave 2
             List <int> tal = new List<int>();
 
             for (int i = 0; i <= 10; i++)
@@ -30,8 +34,8 @@ namespace Array_og_Lister
                     tal.Add(i);
                 }
                 
-            }
-
+            }*/
+            // Opgave 3
             string[] arr = {"Jeg", "er", "i", "skole", "og", "har", "faget"};
 
             for (int j = 0; j < arr.Length; j++)
@@ -39,11 +43,11 @@ namespace Array_og_Lister
                 if (arr[j] == "skole")
                 {
                     Console.WriteLine(arr[j]);
-                    break
+                    break;
                 }
-            }*/
+            }
             
-
+            /*/ Bonus opgave
             List<double> KommaTal = new List<double>();
 
             for (int i = 0; i < 3; i++)
@@ -53,7 +57,7 @@ namespace Array_og_Lister
             double resultat = KommaTal.Sum() / KommaTal.Count;
 
             Console.WriteLine("Resultat: " + resultat);
-            Console.ReadLine();
+            Console.ReadLine();*/
         }
     }
     
