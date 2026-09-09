@@ -31,6 +31,14 @@ namespace OOP
 
         public void setPris(double pris) { this.pris = pris; }
 
-        
+        public virtual void calcNumLegs()
+        {
+            setAntalBen(4);
+        }
+
+        public virtual double calcCost()
+        {
+            return pris * 1;
+        }
     }
 }

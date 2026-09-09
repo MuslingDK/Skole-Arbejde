@@ -33,9 +33,19 @@ namespace OOP
 
         public void setAlder(int alder) { this.alder = alder; }
 
+        public override void calcNumLegs()
+        {
+            setAntalBen(4);
+        }
+
+        public override double calcCost()
+        {
+            return getPris() * 0.95;
+        }
+
         public void printAll()
         {
-            Console.WriteLine(this.race +", "+ this.name +", "+ this.alder + " år, " + this.getPris() + " kr, " + this.getAntalBen() + " ben, " + this.getNøgen());
+            Console.WriteLine(this.race + ", " + this.name + ", " + this.alder + " år, " + this.calcCost() + " kr, " + this.getAntalBen() + " ben, " + this.getNøgen());
         }
     }
 }

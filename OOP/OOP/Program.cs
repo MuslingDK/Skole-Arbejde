@@ -25,9 +25,9 @@ namespace OOP
             List<Dog> dogs = new List<Dog> { d1, d2, d3 };
             List<Snake> snakes = new List<Snake> { sn1, sn2, sn3 };
 
-            double billigstPrisSpider = 99999999999999999;
-            double billigstPrisDog = 99999999999999999;
-            double billigstPrisSnake = 99999999999999999;
+            double billigstPrisSpider = spiders[0].calcCost();
+            double billigstPrisDog = dogs[0].calcCost();
+            double billigstPrisSnake = snakes[0].calcCost();
             int billigstPrisSpiderIndex = 0;
             int billigstPrisDogIndex = 0;
             int billigstPrisSnakeIndex = 0;
@@ -35,9 +35,9 @@ namespace OOP
             for (int i = 0; i < spiders.Count; i++)
             {
 
-                if (spiders[i].getPris() < billigstPrisSpider )
+                if (spiders[i].calcCost() < billigstPrisSpider )
                 {
-                    billigstPrisSpider = spiders[i].getPris();
+                    billigstPrisSpider = spiders[i].calcCost();
                     billigstPrisSpiderIndex = i;
                 }
                 
@@ -47,9 +47,9 @@ namespace OOP
             for (int i = 0; i < dogs.Count; i++)
             {
 
-                if (dogs[i].getPris() < billigstPrisDog)
+                if (dogs[i].calcCost() < billigstPrisDog)
                 {
-                    billigstPrisDog = dogs[i].getPris();
+                    billigstPrisDog = dogs[i].calcCost();
                     billigstPrisDogIndex = i;
                 }
 
@@ -59,9 +59,9 @@ namespace OOP
             for (int i = 0; i < snakes.Count; i++)
             {
 
-                if (snakes[i].getPris() < billigstPrisSnake)
+                if (snakes[i].calcCost() < billigstPrisSnake)
                 {
-                    billigstPrisSnake = snakes[i].getPris();
+                    billigstPrisSnake = snakes[i].calcCost();
                     billigstPrisSnakeIndex = i;
                 }
 
