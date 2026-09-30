@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UML
+{
+    internal class Kunder
+    {
+        public string name {  get; set; }
+        public List<Sæde> reservationer { get; set; }
+    }
+}
