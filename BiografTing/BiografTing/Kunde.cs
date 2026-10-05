@@ -8,5 +8,8 @@ namespace BiografTing
 {
     internal class Kunde
     {
+        public string name { get; set; }
+        public string password { get; set; }
+        public List<Kunde> reservationer { get; set; }
     }
 }
