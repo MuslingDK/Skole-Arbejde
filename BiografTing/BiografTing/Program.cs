@@ -10,6 +10,7 @@ namespace BiografTing
     {
         static void Main(string[] args)
         {
+            Nagga
         }
     }
 }
