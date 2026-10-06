@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BiografTing
 {
-    internal class Kunde
+    internal class Sæde
     {
-        public string name { get; set; }
-        public List<Kunde> reservationer { get; set; }
+        public bool isSeatAvailable { get; set; }
     }
 }
