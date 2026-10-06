@@ -15,6 +15,9 @@ namespace BiografTing
             Film Hal1 = new Film();
             Film Hal2 = new Film();
             Film Hal3 = new Film();
+            Hal1.name = "Kung Fu Kasper!";
+            Hal2.name = "50 Shades of Monster";
+            Hal3.name = "Munkeren Munk";
             
             Sæde s1 = new Sæde();
             Sæde s2 = new Sæde();
