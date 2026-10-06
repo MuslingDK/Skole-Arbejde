@@ -8,6 +8,8 @@ namespace BiografTing
 {
     internal class Sæde
     {
-        public bool isSeatAvailable { get; set; }
+        public bool isSeatAvailable { get; set; } = true;
+
+        Sæde 
     }
 }

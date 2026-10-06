@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace BiografTing
 {
-    internal class Film
+    internal class hal
     {
-        public string name { get; set; }
-        public List<Sæde> sæder {  get; set; }
-
-        public Film(string name)
+        private List<Sæde> sæder { get; set; } = new List<Sæde>();
+        
+        public hal()
         {
-            name = name;
+            for
         }
-
     }
 }
