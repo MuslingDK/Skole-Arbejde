@@ -12,19 +12,11 @@ namespace BiografTing
         static void Main(string[] args)
         {
             Kunde Cust = new Kunde();
-            Film Hal1 = new Film("Kung Fu Kasper!");
-            Film Hal2 = new Film("50 Shades of Monster");
-            Film Hal3 = new Film("Munkeren Munk");
-            
-            Sæde s1 = new Sæde();
-            Sæde s2 = new Sæde();
-            Sæde s3 = new Sæde();
-            Sæde s4 = new Sæde();
-            Sæde s5 = new Sæde();
+            Hal Hal1 = new Hal(5, "Kung Fu Kasper");
+            Hal Hal2 = new Hal(5, "Munkeren Munk");
+            Hal Hal3 = new Hal(5, "Emil Stabil");
 
-            Hal1.sæder.Add(s1);Hal1.sæder.Add(s2);Hal1.sæder.Add(s3);Hal1.sæder.Add(s4);Hal1.sæder.Add(s5);
-            Hal2.sæder.Add(s1);Hal2.sæder.Add(s2);Hal2.sæder.Add(s3);Hal2.sæder.Add(s4);Hal2.sæder.Add(s5);
-            Hal3.sæder.Add(s1);Hal3.sæder.Add(s2);Hal3.sæder.Add(s3);Hal3.sæder.Add(s4);Hal3.sæder.Add(s5);
+
 
         }
     }

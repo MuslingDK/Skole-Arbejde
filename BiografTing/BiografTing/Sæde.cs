@@ -10,6 +10,10 @@ namespace BiografTing
     {
         public bool isSeatAvailable { get; set; } = true;
 
-        Sæde 
+        public Sæde(bool isSeatAvailble)
+        {
+            this.isSeatAvailable = isSeatAvailable; 
+        }
+
     }
 }

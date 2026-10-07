@@ -9,11 +9,10 @@ namespace BiografTing
     internal class Film
     {
         public string name { get; set; }
-        public List<Sæde> sæder {  get; set; }
 
         public Film(string name)
         {
-            name = name;
+            this.name = name;
         }
 
     }
