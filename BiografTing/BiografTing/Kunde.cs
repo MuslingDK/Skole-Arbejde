@@ -9,6 +9,11 @@ namespace BiografTing
     internal class Kunde
     {
         public string name { get; set; }
-        public List<Kunde> reservationer { get; set; }
+        public List<Sæde> reservationer { get; set; }
+
+        public Kunde(string name)
+        {
+            this.name = name;
+        }
     }
 }
