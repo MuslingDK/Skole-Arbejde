@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace BiografTing
             Kunde Cust = new Kunde("Børge", new List<Sæde>());
             Hal Hal1 = new Hal(5, "Kung Fu Kasper");
             Hal Hal2 = new Hal(5, "Munkeren Munk");
-            Hal Hal3 = new Hal(5, "Emil Stabil");
+            Hal Hal3 = new Hal(5, "The Last Sunil Samurai");
 
             List<Hal> Haller = new List<Hal>() { Hal1, Hal2, Hal3 };
             int valgtHal;
@@ -36,10 +37,11 @@ namespace BiografTing
             Console.WriteLine("");
             Typewriter("Du kan vælge imellem.");
             Console.WriteLine("");
-            Typewriter("1. Kung Fu Kasper");
-            Typewriter("2. Munkeren Munk");
-            Typewriter("3. Emil Stabil");
+            Typewriter("1. " + Hal1.name);
+            Typewriter("2. " + Hal2.name);
+            Typewriter("3. " + Hal3.name);
             Typewriter("Tryk 1, 2, eller 3 for at vælge.");
+            Console.WriteLine("");
 
             bool harValgtFilm = false;
             while (harValgtFilm == false)
@@ -50,23 +52,11 @@ namespace BiografTing
                 valgtHal = int.TryParse(input, out int parsedValgtHal) ? parsedValgtHal - 1 : -1;
 
 
-                if (input == "1")
+                if (valgtHal >= 0 && valgtHal < Haller.Count)
                 {
-                    Typewriter("Du har valgt " + Hal1.name);
+                    Typewriter("Du har valgt " + Haller[valgtHal].name);
                     harValgtFilm = true;
-                    Reservation(1);
-                }
-                else if (input == "2")
-                {
-                    Typewriter("Du har valgt " + Hal2.name);
-                    harValgtFilm = true;
-                    Reservation(2);
-                }
-                else if (input == "3")
-                {
-                    Typewriter("Du har valgt " + Hal3.name);
-                    harValgtFilm = true;
-                    Reservation(3);
+                    Reservation(valgtHal + 1);
                 }
                 else
                 {
@@ -82,6 +72,12 @@ namespace BiografTing
 
             void Reservation(int halNumber)
             {
+                if (Haller[valgtHal].AntalLedigeSæder() == 0)
+                {
+                    Typewriter("Ingen ledige sæder tilgængelige.");
+                    return;
+                }
+
                 Typewriter("Her er sæderne:");
                 Haller[valgtHal].PrintSæder();
                 Console.WriteLine("");
@@ -90,7 +86,7 @@ namespace BiografTing
                 ConsoleKeyInfo KeyinfoAntalSæder = Console.ReadKey();
                 string antalSæderInput = KeyinfoAntalSæder.KeyChar.ToString();
                 Console.WriteLine("");
-                if (int.TryParse(antalSæderInput, out int antalSæder) && antalSæder > 0 && antalSæder <= Haller[valgtHal].antalSæder)
+                if (int.TryParse(antalSæderInput, out int antalSæder) && antalSæder > 0 && antalSæder <= Haller[valgtHal].AntalLedigeSæder())
                 {
                     Typewriter("Du har valgt at reservere " + antalSæder + " sæder.");
                 }

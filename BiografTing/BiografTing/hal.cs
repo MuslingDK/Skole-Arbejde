@@ -17,8 +17,7 @@ namespace BiografTing
             this.name = name;
             for (int i = 0; i < antalSæder; i++)
             {
-                sæder.Add(new Sæde(RandomBool(), i + 1, name));
-                Console.WriteLine(RandomBool());
+                sæder.Add(new Sæde(true, i + 1, name));
             }
         }
 
@@ -37,10 +36,23 @@ namespace BiografTing
             }
         }
 
-        public bool RandomBool()
+        private bool RandomBool()
         {
-            int RandomNumber = new Random().Next(100);
-            return RandomNumber < 50;
+            int RandomNumber = new Random().Next(2);
+            return RandomNumber < 1;
+        }
+
+        public int AntalLedigeSæder()
+        {
+            int antalLedigeSæder = 0;
+            for (int i = 0; i < sæder.Count; i++)
+            {
+                if (sæder[i].isSeatAvailable == true)
+                {
+                    antalLedigeSæder++;
+                }
+            }
+            return antalLedigeSæder;
         }
     }
 }
