@@ -17,9 +17,9 @@ namespace BiografTing
             Hal Hal3 = new Hal(5, "Emil Stabil");
 
             List<Hal> Haller = new List<Hal>() { Hal1, Hal2, Hal3 };
-            int valgtHal = 0;
+            int valgtHal;
 
-            double Interval = 0.4; //In Seconds
+            double Interval = 0.1; //In Seconds
 
             void Typewriter(string s) //Typewriter effect for console output
             {
@@ -47,7 +47,7 @@ namespace BiografTing
                 ConsoleKeyInfo Keyinfo = Console.ReadKey();
                 string input = Keyinfo.KeyChar.ToString();
                 Console.WriteLine("");
-                valgtHal = int.Parse(input) - 1;
+                valgtHal = int.TryParse(input, out int parsedValgtHal) ? parsedValgtHal - 1 : -1;
 
 
                 if (input == "1")
@@ -119,24 +119,18 @@ namespace BiografTing
                         continue;
                     }
 
-                    try
-                    {
+                
 
-                        if (Haller[valgtHal].sæder[valgtSæde - 1].isSeatAvailable == true)
-                        {
-                            Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde - 1].seatNumber + " til " + Haller[valgtHal].name);
-                            Haller[valgtHal].sæder[valgtSæde - 1].isSeatAvailable = false;
-                            Cust.reservationer.Add(Haller[valgtHal].sæder[valgtSæde - 1]);
-                        }
-                        else
-                        {
-                            Typewriter("Sædet er allerede optaget. Prøv igen.");
-                            i--;
-                        }
+                    if (Haller[valgtHal].sæder[valgtSæde-1].isSeatAvailable == true)
+                    {
+                        Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde-1].seatNumber + " til " + Haller[valgtHal].name);
+                        Haller[valgtHal].sæder[valgtSæde-1].isSeatAvailable = false;
+                        Cust.reservationer.Add(Haller[valgtHal].sæder[valgtSæde-1]);
                     }
-                    catch (ArgumentOutOfRangeException)
+                    else
                     {
-
+                        Typewriter("Sædet er allerede optaget. Prøv igen.");
+                        i--;
                     }
                 }
             }

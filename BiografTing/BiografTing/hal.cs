@@ -17,8 +17,8 @@ namespace BiografTing
             this.name = name;
             for (int i = 0; i < antalSæder; i++)
             {
-                bool rng = new Random().Next(2) == 1;
-                sæder.Add(new Sæde(rng, i + 1, name));
+                sæder.Add(new Sæde(RandomBool(), i + 1, name));
+                Console.WriteLine(RandomBool());
             }
         }
 
@@ -35,6 +35,12 @@ namespace BiografTing
                     Console.WriteLine("Sæde " + sæder[i].seatNumber + ": Optaget");
                 }
             }
-        } 
+        }
+
+        public bool RandomBool()
+        {
+            int RandomNumber = new Random().Next(100);
+            return RandomNumber < 50;
+        }
     }
 }

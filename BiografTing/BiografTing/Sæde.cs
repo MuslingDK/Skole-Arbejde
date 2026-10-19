@@ -8,7 +8,7 @@ namespace BiografTing
 {
     internal class Sæde : Film
     {
-        public bool isSeatAvailable { get; set; } = true;
+        public bool isSeatAvailable { get; set; }
         public int seatNumber { get; set; }
         public string filmNavn { get; set; }
 
