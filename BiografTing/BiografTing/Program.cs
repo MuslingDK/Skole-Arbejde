@@ -122,11 +122,11 @@ namespace BiografTing
                     try
                     {
 
-                        if (Haller[valgtHal].sæder[valgtSæde].isSeatAvailable == true)
+                        if (Haller[valgtHal].sæder[valgtSæde - 1].isSeatAvailable == true)
                         {
-                            Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde].seatNumber + " til " + Haller[valgtHal].name);
-                            Haller[valgtHal].sæder[valgtSæde].isSeatAvailable = false;
-                            Cust.reservationer.Add(Haller[valgtHal].sæder[valgtSæde]);
+                            Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde - 1].seatNumber + " til " + Haller[valgtHal].name);
+                            Haller[valgtHal].sæder[valgtSæde - 1].isSeatAvailable = false;
+                            Cust.reservationer.Add(Haller[valgtHal].sæder[valgtSæde - 1]);
                         }
                         else
                         {

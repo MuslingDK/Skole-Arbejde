@@ -17,7 +17,7 @@ namespace BiografTing
             this.name = name;
             for (int i = 0; i < antalSæder; i++)
             {
-                bool rng = new Random().Next(2) == 0;
+                bool rng = new Random().Next(2) == 1;
                 sæder.Add(new Sæde(rng, i + 1, name));
             }
         }
