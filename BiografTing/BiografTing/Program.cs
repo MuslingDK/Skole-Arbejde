@@ -11,10 +11,7 @@ namespace BiografTing
     {
         static void Main(string[] args)
         {
-
-
-
-            Kunde Cust = new Kunde("Børge");
+            Kunde Cust = new Kunde("Børge", new List<Sæde>());
             Hal Hal1 = new Hal(5, "Kung Fu Kasper");
             Hal Hal2 = new Hal(5, "Munkeren Munk");
             Hal Hal3 = new Hal(5, "Emil Stabil");
@@ -35,21 +32,18 @@ namespace BiografTing
                 Console.WriteLine("");
             }
 
-            Typewriter("Velkommen til Pillers Bio!");
-            Typewriter("Vi har følgende film i dag:");
-
+            Typewriter("Velkommen til Pillers Biograf.");
             Console.WriteLine("");
+            Typewriter("Du kan vælge imellem.");
+            Console.WriteLine("");
+            Typewriter("1. Kung Fu Kasper");
+            Typewriter("2. Munkeren Munk");
+            Typewriter("3. Emil Stabil");
+            Typewriter("Tryk 1, 2, eller 3 for at vælge.");
 
-            Typewriter("1. " + Hal1.name);
-            Typewriter("2. " + Hal2.name);
-            Typewriter("3. " + Hal3.name);
-
-            Typewriter("Tryk 1, 2 eller 3 for at vælge en film.");
-
-
-            while (true)
+            bool harValgtFilm = false;
+            while (harValgtFilm == false)
             {
-                
                 ConsoleKeyInfo Keyinfo = Console.ReadKey();
                 string input = Keyinfo.KeyChar.ToString();
                 Console.WriteLine("");
@@ -59,17 +53,20 @@ namespace BiografTing
                 if (input == "1")
                 {
                     Typewriter("Du har valgt " + Hal1.name);
-                    break;
+                    harValgtFilm = true;
+                    Reservation(1);
                 }
                 else if (input == "2")
                 {
                     Typewriter("Du har valgt " + Hal2.name);
-                    break;
+                    harValgtFilm = true;
+                    Reservation(2);
                 }
                 else if (input == "3")
                 {
                     Typewriter("Du har valgt " + Hal3.name);
-                    break;
+                    harValgtFilm = true;
+                    Reservation(3);
                 }
                 else
                 {
@@ -78,29 +75,72 @@ namespace BiografTing
 
             }
 
-            Reservation();
-
-            void Reservation()
+            for (int i = 0; i < Cust.reservationer.Count; i++)
             {
-                Typewriter("Her er de sæderne:");
+                Cust.reservationer[i].printSæde();
+            }
+
+            void Reservation(int halNumber)
+            {
+                Typewriter("Her er sæderne:");
                 Haller[valgtHal].PrintSæder();
                 Console.WriteLine("");
-                Typewriter("Skriv nummeret på det sæde du vil reservere.");
 
-                if (Haller[valgtHal].sæder[int.Parse(Console.ReadLine()) - 1].isSeatAvailable)
+                Typewriter("Hvor mange sæder vil du reservere?");
+                ConsoleKeyInfo KeyinfoAntalSæder = Console.ReadKey();
+                string antalSæderInput = KeyinfoAntalSæder.KeyChar.ToString();
+                Console.WriteLine("");
+                if (int.TryParse(antalSæderInput, out int antalSæder) && antalSæder > 0 && antalSæder <= Haller[valgtHal].antalSæder)
                 {
-                    Haller[valgtHal].sæder[int.Parse(Console.ReadLine()) - 1].isSeatAvailable = false;
-                    Typewriter("Du har reserveret sæde " + (int.Parse(Console.ReadLine()) - 1) + " i " + Haller[valgtHal].name);
-                    
+                    Typewriter("Du har valgt at reservere " + antalSæder + " sæder.");
                 }
                 else
                 {
-                    Typewriter("Sædet er allerede optaget. Prøv igen.");
-                    Reservation();
+                    Typewriter("Ugyldigt antal sæder. Prøv igen.");
+                    Reservation(halNumber);
+                    return;
+                }
+
+                Typewriter("Skriv nummeret på det/de sæder du vil reservere.");
+
+                for (int i = 0; i < antalSæder; i++)
+                {
+                    ConsoleKeyInfo KeyinfoValgtSæde = Console.ReadKey();
+                    string valgtSædeInput = KeyinfoValgtSæde.KeyChar.ToString();
+                    Console.WriteLine("");
+                    if (int.TryParse(valgtSædeInput, out int valgtSæde) && valgtSæde >= 1 && valgtSæde <= Haller[valgtHal].antalSæder)
+                    {
+
+                    }
+                    else
+                    {
+                        Typewriter("Ugyldigt sædenummer. Prøv igen.");
+                        i--;
+                        continue;
+                    }
+
+                    try
+                    {
+
+                        if (Haller[valgtHal].sæder[valgtSæde].isSeatAvailable == true)
+                        {
+                            Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde].seatNumber + " til " + Haller[valgtHal].name);
+                            Haller[valgtHal].sæder[valgtSæde].isSeatAvailable = false;
+                            Cust.reservationer.Add(Haller[valgtHal].sæder[valgtSæde]);
+                        }
+                        else
+                        {
+                            Typewriter("Sædet er allerede optaget. Prøv igen.");
+                            i--;
+                        }
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+
+                    }
                 }
             }
         }
     }
 }
-
 

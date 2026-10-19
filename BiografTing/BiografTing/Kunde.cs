@@ -11,9 +11,10 @@ namespace BiografTing
         public string name { get; set; }
         public List<Sæde> reservationer { get; set; }
 
-        public Kunde(string name)
+        public Kunde(string name, List<Sæde> reservationer)
         {
             this.name = name;
+            this.reservationer = reservationer;
         }
     }
 }

@@ -14,10 +14,11 @@ namespace BiografTing
         public Hal(int antalSæder, string name) : base(name)
         {
             this.antalSæder = antalSæder;
+            this.name = name;
             for (int i = 0; i < antalSæder; i++)
             {
                 bool rng = new Random().Next(2) == 0;
-                sæder.Add(new Sæde(rng, i + 1));
+                sæder.Add(new Sæde(rng, i + 1, name));
             }
         }
 
@@ -25,7 +26,7 @@ namespace BiografTing
         {
             for (int i = 0; i < sæder.Count; i++)
             {
-                if (sæder[i].isSeatAvailable)
+                if (sæder[i].isSeatAvailable == true)
                 {
                     Console.WriteLine("Sæde " + sæder[i].seatNumber + ": Ledig");
                 }
