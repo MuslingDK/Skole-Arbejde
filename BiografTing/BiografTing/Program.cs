@@ -70,6 +70,10 @@ namespace BiografTing
                 Cust.reservationer[i].printSæde();
             }
 
+
+
+
+
             void Reservation(int halNumber)
             {
                 if (Haller[valgtHal].AntalLedigeSæder() == 0)
