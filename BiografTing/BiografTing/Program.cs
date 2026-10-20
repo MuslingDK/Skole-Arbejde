@@ -72,7 +72,7 @@ namespace BiografTing
 
 
 
-
+            
 
             void Reservation(int halNumber)
             {
