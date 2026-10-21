@@ -40,38 +40,28 @@ namespace BiografTing
             Typewriter("3. " + Hal3.navn);
             Typewriter("Tryk 1, 2, eller 3 for at vælge.");
             Console.WriteLine("");
+            VælgFilm();
+            PrintReservationer();
 
 
             //Vælger film
-            bool harValgtFilm = false;
-            while (harValgtFilm == false)
+            void VælgFilm()
             {
-                ConsoleKeyInfo Keyinfo = Console.ReadKey();
-                string input = Keyinfo.KeyChar.ToString();
+                ConsoleKeyInfo KeyinfoValgtFilm = Console.ReadKey();
+                string valgtFilmInput = KeyinfoValgtFilm.KeyChar.ToString();
                 Console.WriteLine("");
-                valgtHal = int.TryParse(input, out int parsedValgtHal) ? parsedValgtHal - 1 : -1;
-
-
-                if (valgtHal >= 0 && valgtHal < Haller.Count)
+                if (int.TryParse(valgtFilmInput, out int valgtFilm) && valgtFilm >= 1 && valgtFilm <= Haller.Count)
                 {
+                    valgtHal = valgtFilm - 1;
                     Typewriter("Du har valgt " + Haller[valgtHal].navn);
-                    harValgtFilm = true;
-                    Reservation(valgtHal + 1);
+                    Reservation(valgtHal);
                 }
                 else
                 {
                     Typewriter("Ugyldigt valg. Prøv igen.");
+                    VælgFilm();
                 }
-
             }
-            //Printer reservationer
-            for (int i = 0; i < Kunde1.reservationer.Count; i++)
-            {
-                Kunde1.reservationer[i].printSæde();
-            }
-
-
-
 
             //Reservation funktion
             void Reservation(int halNumber)
@@ -136,6 +126,16 @@ namespace BiografTing
                         Typewriter("Sædet er allerede optaget. Prøv igen.");
                         i--;
                     }
+                }
+            }
+
+            //Printer reservationer
+            void PrintReservationer()
+            {
+                Typewriter("Dine reservationer:");
+                foreach (var sæde in Kunde1.reservationer)
+                {
+                    Typewriter("Sæde " + sæde.sædeNummer + " i " + Haller[valgtHal].navn);
                 }
             }
         }
