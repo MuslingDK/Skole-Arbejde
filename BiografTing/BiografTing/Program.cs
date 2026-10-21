@@ -20,7 +20,8 @@ namespace BiografTing
 
             double Interval = 0.1; //I sekunder
 
-            void Typewriter(string s) //Typewriter funktion, som printer en string med et interval mellem hvert bogstav
+            //Typewriter funktion, som printer en string med et interval mellem hvert bogstav
+            void Typewriter(string s)
             {
                 List<char> tp = s.ToList();
                 for (int i = 0; i < tp.Count; i++)
@@ -30,6 +31,7 @@ namespace BiografTing
                 }
                 Console.WriteLine("");
             }
+
             // Viser filmne
             Typewriter("Velkommen til Pillers Biograf.");
             Console.WriteLine("");

@@ -28,11 +28,11 @@ namespace BiografTing
             {
                 if (sæder[i].erSædeLedig == true)
                 {
-                    Console.WriteLine("Sæde " + sæder[i].seatNumber + ": Ledig");
+                    Console.WriteLine("Sæde " + sæder[i].sædeNummer + ": Ledig");
                 }
                 else
                 {
-                    Console.WriteLine("Sæde " + sæder[i].seatNumber + ": Optaget");
+                    Console.WriteLine("Sæde " + sæder[i].sædeNummer + ": Optaget");
                 }
             }
         }

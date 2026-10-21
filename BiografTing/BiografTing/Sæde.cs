@@ -19,10 +19,5 @@ namespace BiografTing
             this.navn = navn;
 
         }
-
-        public void printSæde()
-        {
-            Console.WriteLine(this.navn + ", " + this.sædeNummer + ", " + this.erSædeLedig);
-        }
     }
 }
