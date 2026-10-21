@@ -11,21 +11,22 @@ namespace BiografTing
         public List<Sæde> sæder { get; set; } = new List<Sæde>();
         public int antalSæder { get; set; }
         
-        public Hal(int antalSæder, string name) : base(name)
+        public Hal(int antalSæder, string navn) : base(navn)
         {
             this.antalSæder = antalSæder;
-            this.name = name;
+            this.navn = navn;
             for (int i = 0; i < antalSæder; i++)
             {
-                sæder.Add(new Sæde(true, i + 1, name));
+                sæder.Add(new Sæde(true, i + 1, navn));
             }
         }
 
+        //Metode til at printe alle sæder i en hal
         public void PrintSæder()
         {
             for (int i = 0; i < sæder.Count; i++)
             {
-                if (sæder[i].isSeatAvailable == true)
+                if (sæder[i].erSædeLedig == true)
                 {
                     Console.WriteLine("Sæde " + sæder[i].seatNumber + ": Ledig");
                 }
@@ -36,18 +37,13 @@ namespace BiografTing
             }
         }
 
-        private bool RandomBool()
-        {
-            int RandomNumber = new Random().Next(2);
-            return RandomNumber < 1;
-        }
-
+        //Metode til at tælle antallet af ledige sæder i en hal
         public int AntalLedigeSæder()
         {
             int antalLedigeSæder = 0;
             for (int i = 0; i < sæder.Count; i++)
             {
-                if (sæder[i].isSeatAvailable == true)
+                if (sæder[i].erSædeLedig == true)
                 {
                     antalLedigeSæder++;
                 }

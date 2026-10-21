@@ -8,11 +8,11 @@ namespace BiografTing
 {
     internal class Film
     {
-        public string name { get; set; }
+        public string navn { get; set; }
 
-        public Film(string name)
+        public Film(string navn)
         {
-            this.name = name;
+            this.navn = navn;
         }
 
     }

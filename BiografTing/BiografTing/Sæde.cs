@@ -8,21 +8,21 @@ namespace BiografTing
 {
     internal class Sæde : Film
     {
-        public bool isSeatAvailable { get; set; } = true;
-        public int seatNumber { get; set; }
+        public bool erSædeLedig { get; set; } = true;
+        public int sædeNummer { get; set; }
         public string filmNavn { get; set; }
 
-        public Sæde(bool isSeatAvailble, int seatNumber,string name) : base(name)
+        public Sæde(bool erSædeLedig, int sædeNummer,string navn) : base(navn)
         {
-            this.isSeatAvailable = isSeatAvailable;
-            this.seatNumber = seatNumber;
-            this.name = name;
+            this.erSædeLedig = erSædeLedig;
+            this.sædeNummer = sædeNummer;
+            this.navn = navn;
 
         }
 
         public void printSæde()
         {
-            Console.WriteLine(this.name + ", " + this.seatNumber + ", " + this.isSeatAvailable);
+            Console.WriteLine(this.navn + ", " + this.sædeNummer + ", " + this.erSædeLedig);
         }
     }
 }

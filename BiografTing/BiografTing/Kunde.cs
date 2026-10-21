@@ -8,12 +8,12 @@ namespace BiografTing
 {
     internal class Kunde
     {
-        public string name { get; set; }
+        public string navn { get; set; }
         public List<Sæde> reservationer { get; set; }
 
-        public Kunde(string name, List<Sæde> reservationer)
+        public Kunde(string navn, List<Sæde> reservationer)
         {
-            this.name = name;
+            this.navn = navn;
             this.reservationer = reservationer;
         }
     }

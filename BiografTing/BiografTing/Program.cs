@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace BiografTing
 {
@@ -12,7 +9,8 @@ namespace BiografTing
     {
         static void Main(string[] args)
         {
-            Kunde Cust = new Kunde("Børge", new List<Sæde>());
+            //Opretter kunde og haller
+            Kunde Kunde1 = new Kunde("Børge", new List<Sæde>());
             Hal Hal1 = new Hal(5, "Kung Fu Kasper");
             Hal Hal2 = new Hal(5, "Munkeren Munk");
             Hal Hal3 = new Hal(5, "The Last Sunil Samurai");
@@ -20,9 +18,9 @@ namespace BiografTing
             List<Hal> Haller = new List<Hal>() { Hal1, Hal2, Hal3 };
             int valgtHal;
 
-            double Interval = 0.1; //In Seconds
+            double Interval = 0.1; //I sekunder
 
-            void Typewriter(string s) //Typewriter effect for console output
+            void Typewriter(string s) //Typewriter funktion, som printer en string med et interval mellem hvert bogstav
             {
                 List<char> tp = s.ToList();
                 for (int i = 0; i < tp.Count; i++)
@@ -32,17 +30,19 @@ namespace BiografTing
                 }
                 Console.WriteLine("");
             }
-
+            // Viser filmne
             Typewriter("Velkommen til Pillers Biograf.");
             Console.WriteLine("");
             Typewriter("Du kan vælge imellem.");
             Console.WriteLine("");
-            Typewriter("1. " + Hal1.name);
-            Typewriter("2. " + Hal2.name);
-            Typewriter("3. " + Hal3.name);
+            Typewriter("1. " + Hal1.navn);
+            Typewriter("2. " + Hal2.navn);
+            Typewriter("3. " + Hal3.navn);
             Typewriter("Tryk 1, 2, eller 3 for at vælge.");
             Console.WriteLine("");
 
+
+            //Vælger film
             bool harValgtFilm = false;
             while (harValgtFilm == false)
             {
@@ -54,7 +54,7 @@ namespace BiografTing
 
                 if (valgtHal >= 0 && valgtHal < Haller.Count)
                 {
-                    Typewriter("Du har valgt " + Haller[valgtHal].name);
+                    Typewriter("Du har valgt " + Haller[valgtHal].navn);
                     harValgtFilm = true;
                     Reservation(valgtHal + 1);
                 }
@@ -64,28 +64,31 @@ namespace BiografTing
                 }
 
             }
-
-            for (int i = 0; i < Cust.reservationer.Count; i++)
+            //Printer reservationer
+            for (int i = 0; i < Kunde1.reservationer.Count; i++)
             {
-                Cust.reservationer[i].printSæde();
+                Kunde1.reservationer[i].printSæde();
             }
 
 
 
-            
 
+            //Reservation funktion
             void Reservation(int halNumber)
             {
+                //Tjekker om der er ledige sæder
                 if (Haller[valgtHal].AntalLedigeSæder() == 0)
                 {
                     Typewriter("Ingen ledige sæder tilgængelige.");
                     return;
                 }
 
+                //Printer sæderne
                 Typewriter("Her er sæderne:");
                 Haller[valgtHal].PrintSæder();
                 Console.WriteLine("");
 
+                //Spørger hvor mange sæder man vil reservere
                 Typewriter("Hvor mange sæder vil du reservere?");
                 ConsoleKeyInfo KeyinfoAntalSæder = Console.ReadKey();
                 string antalSæderInput = KeyinfoAntalSæder.KeyChar.ToString();
@@ -103,6 +106,7 @@ namespace BiografTing
 
                 Typewriter("Skriv nummeret på det/de sæder du vil reservere.");
 
+                //Løkker for at vælge sæder
                 for (int i = 0; i < antalSæder; i++)
                 {
                     ConsoleKeyInfo KeyinfoValgtSæde = Console.ReadKey();
@@ -119,13 +123,13 @@ namespace BiografTing
                         continue;
                     }
 
-                
 
-                    if (Haller[valgtHal].sæder[valgtSæde-1].isSeatAvailable == true)
+                    //Tjekker om sædet er ledigt og reserverer det
+                    if (Haller[valgtHal].sæder[valgtSæde - 1].erSædeLedig == true)
                     {
-                        Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde-1].seatNumber + " til " + Haller[valgtHal].name);
-                        Haller[valgtHal].sæder[valgtSæde-1].isSeatAvailable = false;
-                        Cust.reservationer.Add(Haller[valgtHal].sæder[valgtSæde-1]);
+                        Typewriter("Du har reserveret sæde " + Haller[valgtHal].sæder[valgtSæde - 1].sædeNummer + " til " + Haller[valgtHal].navn);
+                        Haller[valgtHal].sæder[valgtSæde - 1].erSædeLedig = false;
+                        Kunde1.reservationer.Add(Haller[valgtHal].sæder[valgtSæde - 1]);
                     }
                     else
                     {
