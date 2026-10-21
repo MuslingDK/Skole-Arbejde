@@ -135,6 +135,7 @@ namespace BiografTing
             void PrintReservationer()
             {
                 Typewriter("Dine reservationer:");
+                Console.WriteLine("");
                 foreach (var sæde in Kunde1.reservationer)
                 {
                     Typewriter("Sæde " + sæde.sædeNummer + " i " + Haller[valgtHal].navn);
